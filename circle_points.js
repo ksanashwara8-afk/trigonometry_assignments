@@ -17,19 +17,15 @@ function setup() {
     return { WIDTH, HEIGHT, FPS, noOfPoints, angle, radius, x, y };
 }
 
-function drawCircle(x, y, radius, color) {
-    r.DrawCircle(x, y, radius, color);
-}
-
 function draw(w) {
     r.BeginDrawing();
     r.ClearBackground(r.WHITE);
-    drawCircle(w.x, w.y, w.radius, r.BLACK);
+    r.DrawCircle(w.x, w.y, w.radius, r.BLACK);
 
     for (let n = 0; n < w.noOfPoints; n++) {
         const x = w.x + w.radius * Math.sin(w.angle * n);
         const y = w.y - w.radius * Math.cos(w.angle * n);
-        drawCircle(x, y, 5, r.RED);
+        r.DrawCircle(x, y, 5, r.RED);
     }
 
     r.EndDrawing();
